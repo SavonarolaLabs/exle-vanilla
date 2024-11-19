@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXLE - Global P2P Lending on Ergo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <meta name="description" content="Decentralized P2P lending platform on Ergo blockchain" />
+    <style>
+      :root {
+        --bg-light: #ffffff;
+        --text-light: #1a1a1a;
+        --bg-dark: #0f0f0f;
+        --text-dark: #e5e7eb;
+        --primary-color: #3b82f6;
+        --secondary-color: #10b981;
+      }
+
+      * {
+        transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .theme-transition {
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .gradient-border {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, #3b82f6, #10b981);
+        animation: rotate 5s linear infinite;
+        z-index: -1;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="dark" class="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 theme-transition">
+    <header class="w-full px-6 py-4 sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <nav class="flex items-center space-x-6">
+          <a href="#" class="text-sm font-semibold hover:text-blue-600 transition">EXLE</a>
+          <a href="#loans" class="text-sm font-semibold hover:text-blue-600 transition">Loans</a>
+          <a href="#repayments" class="text-sm font-semibold hover:text-blue-600 transition">Repayments</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            <svg id="theme-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path id="moon-icon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m3.343-5.657L5.929 5.93" />
+              <path id="sun-icon" d="M12 17v4m-4-1h8m-8-6l-2-2h12l-2 2m2 6H8" />
+            </svg>
+          </button>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 15.2V12a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v3.2c0 .274-.11.535-.595.595H4l-1 1h18l-1-1h-1.405A.89.89 0 0118 15.2V12c0-3.314-2.686-6-6-6z"
+              />
+            </svg>
+            <span>Connect wallet</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 text-left">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Borrow and Lend Globally
+          <br />
+          <span class="text-blue-600">on Ergo Chain</span>
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          A decentralized, peer-to-peer lending platform leveraging the power of blockchain technology to create borderless financial opportunities.
+        </p>
+        <div class="flex space-x-4">
+          <button class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Create Loan</button>
+          <button class="px-6 py-3 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition">Learn More</button>
+        </div>
+      </div>
+      <div class="gradient-border rounded-2xl overflow-hidden shadow-2xl">
+        <img src="https://i.pinimg.com/originals/6b/c0/bf/6bc0bf19074aa73ba2e67c4ac1bc1315.png" alt="Global Network Visualization" class="w-full object-cover" loading="lazy" />
+      </div>
+    </main>
+
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const moonIcon = document.getElementById('moon-icon');
+      const sunIcon = document.getElementById('sun-icon');
+
+      themeToggle.addEventListener('click', () => {
+        const isDark = body.classList.toggle('dark');
+        moonIcon.style.display = isDark ? 'block' : 'none';
+        sunIcon.style.display = isDark ? 'none' : 'block';
+      });
+    </script>
+  </body>
+</html>

@@ -4,70 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Borrow and Lend</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --bg-color-light: #ffffff;
-        --text-color-light: #1a1a1a;
-        --bg-color-dark: #0f0f0f;
-        --text-color-dark: #e5e7eb;
-      }
-
-      [data-theme='light'] {
-        --bg-color: var(--bg-color-light);
-        --text-color: var(--text-color-light);
-      }
-
-      [data-theme='dark'] {
-        --bg-color: var(--bg-color-dark);
-        --text-color: var(--text-color-dark);
-      }
-
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-      }
-    </style>
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
-  <body data-theme="dark" class="min-h-screen flex flex-col items-center font-sans">
-    <header class="w-full px-6 py-4 flex justify-between items-center">
-      <nav class="flex items-center gap-4">
-        <a href="#" class="text-sm">EXLE</a>
-        <a href="#" class="text-sm">Loans</a>
-        <a href="#" class="text-sm">Repayments</a>
-      </nav>
-      <div class="flex items-center gap-4">
-        <button id="theme-toggle" class="text-sm">🌙</button>
-        <button class="px-4 py-2 bg-blue-500 text-white rounded">Connect wallet</button>
-      </div>
-    </header>
+  <body data-theme="dark" class="min-h-screen font-sans">
+    <div id="navbar"></div>
+    <div id="landing"></div>
+    <div id="footer"></div>
 
-    <main class="flex flex-col items-center text-center px-6">
-      <h1 class="text-4xl font-bold mb-4">Borrow and lend money globally on Ergo chain</h1>
-      <p class="text-lg mb-6">A person-to-person (P2P) lending platform with easy-to-use tools to borrow and lend money on the Ergo blockchain.</p>
-      <div class="flex gap-4">
-        <button class="px-6 py-3 bg-blue-500 text-white rounded">Create loan</button>
-        <button class="px-6 py-3 border border-blue-500 text-blue-500 rounded">Learn more</button>
-      </div>
-      <div class="mt-10">
-        <img src="https://i.pinimg.com/originals/6b/c0/bf/6bc0bf19074aa73ba2e67c4ac1bc1315.png" alt="Global Network" class="w-full max-w-md" />
-      </div>
-    </main>
-
-    <footer class="mt-16">
-      <h2 class="text-xl font-bold">How does it work?</h2>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('theme-toggle');
-      const body = document.body;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-      });
-    </script>
+    <!-- Include the main.js script -->
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
